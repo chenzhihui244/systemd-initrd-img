@@ -41,6 +41,9 @@ function configure_dracut() {
 	sed -i "s/#hostonly=\"yes\"/hostonly=\"no\"/g" /etc/dracut.conf
 }
 
+#		--modules "debug" \
+#		--modules "usrmount" \
+#		--modules "fs-lib" \
 function mk_initrd() {
 	dracut -M --gzip \
 		--verbose \
@@ -54,19 +57,11 @@ function mk_initrd() {
 		--modules "clevis" \
 		--modules "base" \
 		--modules "rescue" \
-		--modules "shutdown" \
-		--modules "usrmount" \
 		--modules "systemd" \
-		--modules "systemd-bootchart" \
-		--modules "debug" \
 		--modules "drm" \
-		--modules "dm" \
 		--modules "resume" \
-		--modules "fs-lib" \
-		--modules "shutdown" \
 		--modules "rootfs-block" \
 		--modules "kernel-modules" \
-		--modules "plymouth" \
 		--modules "jeff" \
 		-f initrd.img
 	chmod +r initrd.img
