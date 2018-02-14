@@ -46,8 +46,10 @@ function mk_initrd() {
 		--verbose \
 		--modules "network" \
 		--modules "bash" \
+		--modules "nss-softokn" \
 		--modules "ifcfg" \
 		--modules "terminfo" \
+		--modules "udev-rules" \
 		--modules "i18n" \
 		--modules "clevis" \
 		--modules "base" \
@@ -57,6 +59,14 @@ function mk_initrd() {
 		--modules "systemd" \
 		--modules "systemd-bootchart" \
 		--modules "debug" \
+		--modules "drm" \
+		--modules "dm" \
+		--modules "resume" \
+		--modules "fs-lib" \
+		--modules "shutdown" \
+		--modules "rootfs-block" \
+		--modules "kernel-modules" \
+		--modules "plymouth" \
 		--modules "jeff" \
 		-f initrd.img
 	chmod +r initrd.img
